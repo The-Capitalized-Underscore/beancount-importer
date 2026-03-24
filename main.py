@@ -2,7 +2,6 @@
 import os
 import csv
 from datetime import datetime
-import account_mapping
 import functions
 
 #################################################
@@ -19,7 +18,7 @@ def main():
     for file in find_files:
         file_path = os.path.join(directory_path, file)
 
-    TEMPDATA = {'': '',}
+    print("main")
 
 #open file & determine the account
     #csv reader, determiner

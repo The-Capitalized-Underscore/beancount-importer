@@ -1,7 +1,6 @@
 import os
 import csv
 from datetime import datetime
-import account_mapping
 
 #creates a csvreader object, opens the .csv file, and appends each row to a list
 def csv_reader(file_path):
@@ -50,5 +49,15 @@ def rename_column(entry, columns, new_column):
 
 
 
+def main():
+    TESTBANKDATA = "/data/imports/testBank.csv"
+    TESTBROKERAGWDATA = "/data/imports/testBrokerage.csv"
 
+    print(f"Test Bank Data: {TESTBANKDATA}")
+    csv_reader()
+
+    
+
+if __name__ == "__main__":
+    main()
 
