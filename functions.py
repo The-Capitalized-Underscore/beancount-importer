@@ -5,7 +5,7 @@ from datetime import datetime
 #creates a csvreader object, opens the .csv file, and appends each row to a list
 def csv_reader(file_path):
     if os.path.exists(file_path): #if the file exists, continue
-        print (f"----- Opening {file_path} -----")
+        print (f"----- Opening {file_path} -----\n")
         with open(file_path, newline='', encoding='utf-8-sig') as working_csvfile:
             csvreader = csv.DictReader(working_csvfile) #create csv reader
             file_tempdata = [] #store csv data in temp dictionary
@@ -13,7 +13,8 @@ def csv_reader(file_path):
                 file_tempdata.append(row) #add the current row to the temp list
 
     else:
-        print (f"Trying to open {file_path}... Does not exist")
+        print (f"Trying to open {file_path}... Does not exist\n")
+    return file_tempdata
 ###############################################################################
 
 #format dates to one standardized format
@@ -34,7 +35,7 @@ def format_date(data, csv_field):
         except ValueError:
             pass 
     # if none of the formats work, raise an error
-    raise ValueError(f"Date '{change_date}' does not match any expected formats.")
+    raise ValueError(f"Date '{change_date}' does not match any expected formats.\n")
 ###############################################################################
 
 #rename column
@@ -48,16 +49,4 @@ def rename_column(entry, columns, new_column):
 ###############################################################################
 
 
-
-def main():
-    TESTBANKDATA = "/data/imports/testBank.csv"
-    TESTBROKERAGWDATA = "/data/imports/testBrokerage.csv"
-
-    print(f"Test Bank Data: {TESTBANKDATA}")
-    csv_reader()
-
-    
-
-if __name__ == "__main__":
-    main()
 
